@@ -1,4 +1,4 @@
-simport streamlit as st
+import streamlit as st
 
 Judul = st.title("Hello World!", anchor='right')
 Sub = st.subheader("The World is so beautifull.")
