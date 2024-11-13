@@ -1,4 +1,5 @@
 import streamlit as st
+import cv2
 
 Judul = st.title("Hello World!", anchor='right')
 Sub = st.subheader("The World is so beautifull.")
