@@ -1,9 +1,22 @@
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 
-Judul = st.title("INNALILLAHI!", anchor='right')
-Sub = st.subheader("The World is so beautifull.")
-st.header("World is so complex.")
-st.text("Earth is Our World. So if the earth not match with our condition anymore, we would die.")
-st.markdown("[YouTube](https://www.youtube.com/@gurugembul)")
-st.image('Hitam dan Emas Elegan Modern Sampul Buku Yasin.png')
+# Baca data saham
+df = pd.read_csv('data_saham.csv')
 
+# Tampilan aplikasi
+st.title('Predict the Stocks')
+
+# Input kode saham
+kode_saham = st.text_input('Kode Saham')
+
+# Jika tombol Predict ditekan
+if st.button('Predict'):
+    # Tampilkan grafik saham
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(df['Tanggal'], df['Harga'])
+    ax.set_title(f'Grafik Harga Saham {kode_saham}')
+    ax.set_xlabel('Tanggal')
+    ax.set_ylabel('Harga')
+    st.pyplot(fig)
